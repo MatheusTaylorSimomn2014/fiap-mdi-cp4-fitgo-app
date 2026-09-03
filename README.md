@@ -16,10 +16,6 @@
 
 **Professor:** Hercules Ramos**Professor:** Hercules Ramos
 
-**Data:** Agosto/2026
-
-**Data da entrega:** 02/09/2026
-
 # Documentação e Readme do App: FitGo — Treinos com Rotina Personalizada 
 
 ## Sobre o Projeto do App
@@ -28,7 +24,7 @@ O **FitGo** é um aplicativo mobile desenvolvido em React Native com Expo que of
 
 ## Público-Alvo
 
-Jovens e adultos (18–35 anos) que buscam iniciar ou manter uma rotina de exercícios físicos de forma prática e acessível, sem a necessidade de personal trainer presencial.
+Qualquer pessoa que busca iniciar ou manter uma rotina de exercícios físicos de forma prática e acessível, sem a necessidade de personal trainer presencial.
 
 ## Tecnologias Utilizadas
 
@@ -75,7 +71,7 @@ Atualmente, grande parte da população enfrenta dificuldades para manter uma ro
 
 ### 2. Público-Alvo
 
-- Jovens e adultos de **18 a 35 anos**;
+- Jovens, adultos e idosos;
 - **Iniciantes** no mundo fitness que precisam de orientação;
 - **Praticantes intermediários** que buscam variedade e evolução;
 - **Universitários** que conciliam estudos e vida ativa;
@@ -89,12 +85,12 @@ O **FitGo** oferece:
 2. **Acompanhamento de progresso:** Com métricas claras (peso, medidas, carga, repetições).
 3. **Interface motivadora e intuitiva:** — design pensado para engajar e simplificar a experiência;
 4. **Biblioteca de exercícios:** Com descrições detalhadas e variações para diferentes níveis.
-5. **Gamificação:** Conquistas e metas diárias para manter a consistência.
-6. **Gratuidade com recursos premium:** Modelo freemium que torna o app acessível a todos, mas com recursos extras estando na assinatura premium mensal.
+5. **Gamificação:** Conquistas e metas diárias para manter a consistência. (Projeto planejado para o futuro)
+6. **Gratuidade com recursos premium:** Modelo freemium que torna o app acessível a todos, mas com recursos extras estando na assinatura premium mensal. (Projeto planejado para o futuro)
 
 ---
 
-4. Desenvolvimento de Marca
+## Desenvolvimento de Marca
 
 ### 1. Nome do App
 
@@ -108,14 +104,7 @@ O **FitGo** oferece:
 
 A logo do FitGo foi desenvolvida com uma identidade visual que combina **energia** e **equilíbrio**, utilizando formas orgânicas e uma paleta terrosa que remete à natureza e ao movimento corporal.
 
-**Descrição visual:**
-
-- Círculo central com fundo **bege** (#E9D8AE) — simboliza o corpo, a totalidade e o equilíbrio;
-- Listras diagonais em **preto** (#0B0A0A) — representam movimento, dinamismo e energia;
-- Texto **"FIT GO"** em **branco/off-white** (#FDF9F3) com contorno **marrom** (#8B695C) — garante legibilidade e sofisticação;
-- Borda externa marrom (#8B695C) — confere acabamento e identidade única.
-
-### 3. Paleta de Cores
+**Paleta de Cores**
 
 | Elemento | Cor | Hexadecimal |
 |----------|-----|-------------|
@@ -125,7 +114,7 @@ A logo do FitGo foi desenvolvida com uma identidade visual que combina **energia
 | Contorno do texto e borda externa | Marrom | #8B695C |
 | Sombra das listras | Bege acinzentado | #B4A390 |
 
-### 4. Tipografia
+### Tipografia
 
 - **Títulos e destaques:** *Poppins* (bold) — moderna, geométrica e legível;
 - **Corpo de texto:** *Inter* ou *Roboto* — excelente legibilidade em dispositivos móveis;
@@ -178,7 +167,7 @@ As telas abaixo foram desenvolvidas no Figma e representam a visão inicial do a
 
 - Foto e dados do usuário;
 - Configurações de treino (objetivo, nível, equipamentos);
-- Planos e assinatura.
+- Planos e assinatura. (ainda não implementado)
 
 ### 2. Link do Figma
 
