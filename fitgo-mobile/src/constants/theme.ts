@@ -1,30 +1,16 @@
 /**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
+ * Tema do FitGo: reexporta a paleta da marca (cores semânticas claro/escuro)
+ * e mantém os utilitários usados pelo template (fontes, espaçamentos, insets).
  */
 
 import '@/global.css';
 
 import { Platform } from 'react-native';
 
-export const Colors = {
-  light: {
-    text: '#000000',
-    background: '#ffffff',
-    backgroundElement: '#F0F0F3',
-    backgroundSelected: '#E0E1E6',
-    textSecondary: '#60646C',
-  },
-  dark: {
-    text: '#ffffff',
-    background: '#000000',
-    backgroundElement: '#212225',
-    backgroundSelected: '#2E3135',
-    textSecondary: '#B0B4BA',
-  },
-} as const;
+import { Colors } from '@/constants/colors';
 
-export type ThemeColor = keyof typeof Colors.light & keyof typeof Colors.dark;
+export { BrandColors, Colors } from '@/constants/colors';
+export type { ThemeColor } from '@/constants/colors';
 
 export const Fonts = Platform.select({
   ios: {
@@ -63,3 +49,11 @@ export const Spacing = {
 
 export const BottomTabInset = Platform.select({ ios: 50, android: 80 }) ?? 0;
 export const MaxContentWidth = 800;
+
+export const Radius = {
+  sm: 8,
+  md: 12,
+  lg: 16,
+  xl: 24,
+  full: 999,
+} as const;
