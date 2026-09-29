@@ -198,6 +198,59 @@ As telas abaixo foram desenvolvidas no Figma e representam a visão inicial do a
 
 ---
 
+# CHECKPOINT 5 — Protótipo Funcional (status)
+
+## O que foi implementado no app (`fitgo-mobile/`)
+
+| Requisito CP5 | Status | Onde |
+|---------------|--------|------|
+| Protótipo funcional com dados mockados (sem backend real) | ✅ | `src/constants/mockData.ts` + `src/services/storage.ts` (AsyncStorage) |
+| Telas e fluxos de navegação | ✅ | `src/app/(tabs)/` (Home, Treinos, Progresso, Perfil) + `src/app/[id].tsx` (detalhe do treino), via **expo-router** |
+| Ambiente de teste configurado (Jest) | ✅ | `src/__tests__/` — 2 suítes / 20 testes passando (`npm test`) |
+| Roteiro de testes manuais documentado | ✅ | [`docs/TESTES.md`](fitgo-mobile/docs/TESTES.md) |
+| Decisões técnicas registradas | ✅ | [`docs/DECISOES_TECNICAS.md`](fitgo-mobile/docs/DECISOES_TECNICAS.md) (ADRs 001–006) |
+| Identidade visual oficial aplicada | ✅ | `src/constants/colors.ts` (paleta #E9D8AE/#FDF9F3/#0B0A0A/#8B695C/#B4A390) |
+| Simulação em navegador/emulador | ✅ (executar) | `npx expo start` → web ou Android; build validado com `npx expo export --platform web` |
+
+## Mapa de telas e fluxos de navegação
+
+```
+Splash ─► Tab Navigator (expo-router)
+          ├── 🏠 Home (index)        ─ saudação por horário, streak, card "Treino do dia"
+          │        └─ toque no card ─► Detalhe do Treino ([id])
+          ├── 💪 Treinos             ─ catálogo com filtro por nível ─► Detalhe do Treino ([id])
+          │                               └─ "Finalizar treino" ─► sessão salva (storage) ─► volta à lista
+          ├── 📈 Progresso           ─ gráfico de peso, estatísticas semanais, conquistas
+          └── 👤 Perfil              ─ objetivo/nível/equipamentos editáveis ─ persiste e realimenta a sugestão da Home
+```
+
+**Fluxo principal (happy path):** Perfil define objetivo+nível → Home sugere
+treino compatível → usuário abre o detalhe → executa e finaliza → sessão é
+persistida em AsyncStorage → Progresso atualiza streak/calorias.
+
+## Como rodar os testes
+
+```bash
+cd fitgo-mobile
+npm install
+npm test          # Jest + preset jest-expo
+npx tsc --noEmit  # checagem de tipos (strict)
+```
+
+---
+
+# CHECKPOINT 6 — Entrega Final (status pendências)
+
+| Item | Status | Observação |
+|------|--------|------------|
+| App final funcional com principais features | ✅ | Dados mockados + persistência local cobrem o escopo |
+| Documentação final completa | ✅ | README + `docs/TESTES.md` + `docs/DECISOES_TECNICAS.md` |
+| **APK instalável** | ⚠️ Pendente | Exige conta Expo/EAS: `eas login && eas build --platform android --profile preview` (config `eas.json` já pronta). Também possível via Android Studio (`npx expo prebuild -p android && cd android && ./gradlew assembleDebug`) |
+| Evidências (print/vídeo) | ⚠️ Pendente | Capturar durante TM-01..TM-07 no emulador/navegador |
+| Desafio bônus (API pública real) | ⚠️ Opcional | Candidato: ViaCEP para completar endereço no Perfil |
+
+---
+
 ## 📄 Licença
 
 Este projeto é desenvolvido para fins acadêmicos — FIAP 3ESPH.
