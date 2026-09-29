@@ -7,20 +7,24 @@ import '@/global.css';
 
 import { Platform } from 'react-native';
 
+import { FitGoColors } from './colors';
+
+export { FitGoColors };
+
 export const Colors = {
   light: {
-    text: '#000000',
-    background: '#ffffff',
-    backgroundElement: '#F0F0F3',
-    backgroundSelected: '#E0E1E6',
-    textSecondary: '#60646C',
+    text: FitGoColors.black,
+    background: FitGoColors.offWhite,
+    backgroundElement: FitGoColors.beige,
+    backgroundSelected: FitGoColors.beigeGray,
+    textSecondary: FitGoColors.brown,
   },
   dark: {
-    text: '#ffffff',
-    background: '#000000',
-    backgroundElement: '#212225',
-    backgroundSelected: '#2E3135',
-    textSecondary: '#B0B4BA',
+    text: FitGoColors.offWhite,
+    background: FitGoColors.black,
+    backgroundElement: FitGoColors.brown,
+    backgroundSelected: '#6E5347',
+    textSecondary: FitGoColors.beigeGray,
   },
 } as const;
 

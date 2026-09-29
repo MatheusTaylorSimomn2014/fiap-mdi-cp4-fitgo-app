@@ -201,3 +201,69 @@ As telas abaixo foram desenvolvidas no Figma e representam a visão inicial do a
 ## 📄 Licença
 
 Este projeto é desenvolvido para fins acadêmicos — FIAP 3ESPH.
+
+---
+
+# CHECKPOINT 5 — Protótipo Funcional
+
+## O que foi entregue
+
+| Requisito CP5 | Status | Onde |
+|---------------|--------|------|
+| Protótipo com dados mockados (sem backend) | ✅ | `fitgo-mobile/src/data/mockData.ts` + `src/services/fitgo.ts` |
+| Ambiente de testes configurado | ✅ | Jest + jest-expo (`npm test`, 7 testes unitários passando) e roteiro manual abaixo |
+| README atualizado no GitHub | ✅ | Este README + `fitgo-mobile/README.md` |
+| Telas e fluxos de navegação documentados | ✅ | Seção "Telas implementadas" abaixo |
+| Decisões técnicas registradas | ✅ | Seção "Decisões técnicas" abaixo |
+| Simulação via emulador/navegador | ✅ | `npx expo start --android` ou `--web` (prints/vídeo anexar na entrega) |
+
+## Telas implementadas e fluxo de navegação
+
+```
+Onboarding (splash animada)
+   └─► Tabs inferiores: Home | Treinos | Progresso | Perfil
+        Home ──► "Iniciar agora" ──► Detalhe do Treino (/treino/[id])
+        Treinos ──► card de treino ──► Detalhe do Treino (/treino/[id])
+        Progresso: gráfico de carga semanal + conquistas (gamificação)
+        Perfil: objetivo, nível, plano Freemium (CTA Premium) e sair
+```
+
+- **Home:** saudação dinâmica por horário, card "Treino do Dia" (recomendação personalizada por objetivo/nível com rodízio diário), métricas da semana e streak.
+- **Treinos:** lista agrupada por nível (Iniciante/Intermediário/Avançado); tocar em um card abre o detalhe.
+- **Detalhe do treino (`/treino/[id]`):** exercícios com séries, repetições, descanso e equipamento.
+- **Progresso:** totais da semana, gráfico de barras de carga por dia e conquistas desbloqueáveis.
+- **Perfil:** dados do usuário, seletor de objetivo, card do plano Freemium (R$ 19,90/mês) e logout simulado.
+
+## Decisões técnicas
+
+- **Expo SDK 57 + expo-router** — roteamento baseado em arquivos (`src/app`), menos configuração nativa e build simples via EAS.
+- **TypeScript estrito** — tipos de domínio em `src/data/types.ts`; checagem com `npm run typecheck`.
+- **Camada de serviço isolada (`src/services/fitgo.ts`)** — hoje consome mocks locais; quando existir backend real, basta trocar as importações por chamadas assíncronas mantendo as assinaturas.
+- **Jest + jest-expo** para testes unitários da lógica de negócio e integridade dos mocks.
+- **react-native-web** — permite simulação/demo direto no navegador além do emulador Android.
+- **EAS Build** (`eas.json`, perfil `preview` → APK) para gerar o instalável do CP6.
+
+## Roteiro de testes manuais (CP5)
+
+| # | Passo | Resultado esperado |
+|---|-------|--------------------|
+| 1 | Abrir o app | Splash animada → Home carregada |
+| 2 | Conferir saudação | "Bom dia/Boa tarde/Boa noite, {nome}!" conforme horário |
+| 3 | Tocar "Iniciar agora" na Home | Abre o detalhe do Treino do Dia com exercícios |
+| 4 | Navegar pela tab bar | Alterna Home/Treinos/Progresso/Perfil sem erros |
+| 5 | Filtrar visualmente por nível em Treinos | Cards agrupados Iniciante→Avançado, contagem correta |
+| 6 | Abrir um treino intermediário | Lista de exercícios com séries/reps/descanso |
+| 7 | Aba Progresso | Métricas da semana batem com o gráfico; conquistas com cadeado/check |
+| 8 | Aba Perfil | Objetivo ativo correto; CTA "Assinar Premium" visível p/ não-premium |
+| 9 | Rodar `npm test` | 7 testes unitários passando |
+
+# CHECKPOINT 6 — Entrega Final (parcial)
+
+- App funcional com as principais features (recomendação personalizada, catálogo de treinos, progresso/gamificação, perfil/freemium) ✅
+- Documentação final (este README + README do app) ✅
+- Testes automatizados + roteiro manual ✅
+- **APK:** gerado pelo EAS Build com a conta Expo do time: `npx eas-cli build --platform android --profile preview` (configuração pronta em `eas.json`; exige login — ação manual do integrante responsável).
+
+## Desafio bônus (opcional)
+
+Não integrado nesta fase. Candidato natural: API pública de previsão do tempo (OpenWeather) para sugerir treino ao ar livre conforme o clima — ficaria isolada na camada `src/services/`.
